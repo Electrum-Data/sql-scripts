@@ -95,3 +95,118 @@ where VendorID = 122;
 delete InvoiceCopy
 where InvoiceNumber = '456789';
 */
+
+
+-- JOIN
+/*
+JOIN:
+The ON clause is the most important since it links the Primary Key with the Foreign key of both tables.
+Best practice to use table aliases
+Best practice do these in steps.
+-- SYNTAX
+SELECT table_1.column1, table_2.column2, table_3.column3
+FROM table_1
+JOIN table_2 
+ON table_2_PK = table_1_FK
+[WHERE clause can be added]
+JOIN table_3 
+ON table_1_PK = table_3_FK
+*/
+-- EXAMPLE
+/*
+select o.Description, c.Name, ol.*
+from Orders o
+join Customers c
+    on c.Id = o.CustomerId
+join OrderLines ol
+    on ol.OrdersId = o.Id;
+*/
+
+-- OUTER JOIN
+/*
+Joins everything from the specified table (RIGHT/LEFT)
+RIGHT = FROM table
+LEFT = JOIN table
+-- SYNTAX
+SELECT select_list 
+FROM table_1 
+{LEFT|RIGHT|FULL} JOIN table_2 ON join_condition_1
+*/
+-- EXAMPLE
+/*
+select c.Name, o.Description
+from Orders o right join Customers c
+    on c.Id = o.CustomerId
+order by c.Name
+*/
+
+-- UNION
+/*
+Combines the results of multible select statements into one result
+Without the UNION statement, the results will show as separate results tables instead of one table
+WHERE clauses will be different for each SELECT statement
+--SYNTAX
+SELECT_statement_1
+UNION
+SELECT_statement_2 
+UNION 
+SELECT_statement_3]
+*/
+-- EXAMPLE
+/*
+select 'A' ABC, *
+from Customers
+where Sales >= 80000
+union
+select 'B' ABC, *
+from Customers
+where Sales >= 20000 and Sales < 80000
+union
+select 'C' ABC, *
+from Customers
+where Sales < 20000
+*/
+
+
+-- AGGREGATE FUNCTIONS
+
+-- EXAMPLE
+/*
+select COUNT(*) 'Number of Customers', 
+        MAX(Sales) 'Max Sale', 
+        MIN(Sales) 'Min Sale',
+        AVG(Sales) 'Average Sale',
+        SUM(Sales) 'Total Sales'
+from Customers
+*/
+
+
+-- DISTINCT
+/*
+Removes duplicates
+*/
+-- EXAMPLE
+/*
+select DISTINCT City from Customers;
+*/
+
+-- GROUP BY
+/*
+Groups values in column and gets aggregate amount for that group
+SELECT column must be used in an aggregate function OR in a GROUP BY
+STATEMENT ORDER:
+[FROM table_source] 
+[WHERE search_condition] 
+[GROUP BY group_by_list] 
+[HAVING search_condition] 
+[ORDER BY order_by_list]
+*/
+-- EXAMPLE
+/*
+select City, sum(Sales) Sales
+from Customers
+where City != 'Cleveland'
+group by City
+having sum(Sales) > 600000
+order by Sales
+*/
