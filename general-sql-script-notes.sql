@@ -67,3 +67,31 @@ from GLAccounts
 where AccountNo >= 200 AND AccountNo <= 600
 order by AccountDescription desc, AccountNo;
 */
+
+
+/*
+-- SELECT INTO - Create Test Table
+select *
+into InvoiceCopy
+from Invoices
+*/
+
+/*
+-- INSERT INTO
+insert into InvoiceCopy
+values (97, '456789', '2023-03-01', 8344.50, 0, 0, 1, '2023-03-31', NULL);
+*/
+
+/*
+-- UPDATE
+update InvoiceCopy
+set InvoiceTotal = InvoiceTotal + 250.00,
+    PaymentTotal = InvoiceTotal / 2
+where VendorID = 122;
+*/
+
+/*
+-- DELETE
+delete InvoiceCopy
+where InvoiceNumber = '456789';
+*/
