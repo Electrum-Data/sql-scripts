@@ -5,4 +5,4 @@ Modify the solution to exercise 3 to filter for contacts whose last name begins 
 
 select concat(VendorContactFName,',',VendorContactLName)
 from Vendors
-where VendorContactLName like '[A-C]%' or VendorContactLName like 'E%'
+where VendorContactLName like '[A-C,E]%'
