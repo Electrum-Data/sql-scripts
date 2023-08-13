@@ -202,11 +202,10 @@ STATEMENT ORDER:
 [ORDER BY order_by_list]
 */
 -- EXAMPLE
-/*
-select City, sum(Sales) Sales
-from Customers
-where City != 'Cleveland'
-group by City
-having sum(Sales) > 600000
-order by Sales
-*/
+
+-- select City, sum(Sales) Sales
+-- from Customers
+-- where City != 'Cleveland'
+-- group by City
+-- having sum(Sales) > 600000
+-- order by Sales
