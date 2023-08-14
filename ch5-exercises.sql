@@ -32,7 +32,7 @@ InvoiceCount is the count of the number of invoices, and InvoiceSum is the sum o
 Sort the result set so the vendor with the highest number of invoices appears first.
 */
 
--- select v.VendorName, COUNT(i.InvoiceNumber) InvoiceCount, SUM(i.InvoiceTotal) InvoiceTotal
+-- select v.VendorName, COUNT(*) InvoiceCount, SUM(i.InvoiceTotal) InvoiceTotal
 -- from Vendors v
 -- join Invoices i
 --     on v.VendorID = i.VendorID
@@ -91,8 +91,8 @@ Hint: Use a four-table join.
 */
 
 -- select v.VendorName, g.AccountDescription 'Account-Description' ,count(*) LineItemCount, sum(li.InvoiceLineItemAmount) LineItemSum
--- from Vendors v 
--- join Invoices i 
+-- from Vendors v
+-- join Invoices i
 -- on v.VendorID = i.VendorID
 -- join InvoiceLineItems li 
 -- on i.InvoiceID = li.InvoiceID

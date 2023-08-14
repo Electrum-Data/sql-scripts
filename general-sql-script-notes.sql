@@ -209,3 +209,28 @@ STATEMENT ORDER:
 -- group by City
 -- having sum(Sales) > 600000
 -- order by Sales
+
+-- select *
+-- from Vendors
+-- where VendorName like '% of %';
+
+-- create index VendorNameIndex
+-- on Vendors (VendorName);
+
+/* SUBQUERY */
+-- use SalesDb
+-- select *
+--     from Customers
+--     where sales > (
+--         select avg(sales) 
+--         from Customers
+--         )
+-- order by sales desc;
+
+/* EXIST */
+-- SELECT VendorID, VendorName, VendorState 
+-- FROM Vendors v 
+-- WHERE NOT EXISTS (SELECT *
+--     FROM Invoices i 
+--     WHERE i.VendorID = v.VendorID); 
+
