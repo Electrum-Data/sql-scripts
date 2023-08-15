@@ -1,8 +1,17 @@
-/*  ------------ CREATE DATABASE  ------------  */
+-- USE master;
+-- GO;
+
+-- DROP DATABASE IF EXISTS C41BootCamp;
+-- GO;
+
+-- /*  ------------ CREATE DATABASE  ------------  */
 /*(make sure you are in the Master db system in the dropdown)*/
 -- CREATE DATABASE C41BootCamp;
+-- GO;
+-- USE C41BootCamp;
+-- GO;
 
-/* ------------ CREATE TABLE ------------ */
+-- /* ------------ CREATE TABLE ------------ */
 -- CREATE TABLE Students (
 --     Id INT PRIMARY KEY IDENTITY(1, 1),
 --     Firstname VARCHAR(30) NOT NULL,
@@ -13,12 +22,14 @@
 --     State CHAR(2) NOT NULL DEFAULT 'OH',
 --     Zipcode VARCHAR(5) NULL
 -- );
+-- GO;
 
 -- CREATE TABLE Technologies (
 --     Id INT PRIMARY KEY IDENTITY(1, 1),
 --     Name VARCHAR(30) NOT NULL, 
 --     InstructionDays INT NOT NULL DEFAULT 5
 -- );
+-- GO;
 
 -- CREATE TABLE Curriculum (
 --     Id INT PRIMARY KEY IDENTITY(1, 1),
@@ -26,9 +37,9 @@
 --     Topic VARCHAR(50) NOT NULL,
 --     TecnhologiesId INT NOT NULL FOREIGN KEY REFERENCES Technologies(Id)
 -- );
+-- GO;
 
-/* ------------ INSERT INTO TABLE ------------ */
-
+-- /* ------------ INSERT INTO TABLE ------------ */
 -- insert Students (Firstname, lastname, phone, address, city, state, zipcode
 -- )
 -- values (
@@ -72,7 +83,7 @@
 --         (41, 'HTML/CSS (GD)', 7),
 --         (44, 'JavaScript (GD)', 8),
 --         (52, 'Angular/TS (GD)', 9)
-
+-- GO;
 
 -- select *
 -- from Curriculum c
