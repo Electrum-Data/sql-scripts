@@ -53,7 +53,8 @@ create table requests (
     Justification varchar(80) not null,
     RejectionReason varchar(80) null,
     DeliveryMode varchar(20) not null default 'Pickup',
-    Status varchar(10) null default 'NEW',
+    Status varchar(10) null default 'NEW'
+        check (Status in ('NEW', 'EDIT', 'REVIEW', 'APPROVED', 'REJECTED')),
     Total decimal(11,2) null default 0,
     UserId int not null references Users(Id)
 );
@@ -61,7 +62,7 @@ go
 
 create table requestsLine (
     Id int not null primary key identity(1,1),
-    RequestId int not null references Requests(Id),
+    RequestId int not null references Requests(Id) on delete cascade,
     ProductId int not null references Products(Id),
     Quantity int null default 0
 );
