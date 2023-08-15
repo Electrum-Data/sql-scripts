@@ -234,3 +234,86 @@ STATEMENT ORDER:
 --     FROM Invoices i 
 --     WHERE i.VendorID = v.VendorID); 
 
+/* INSERT 1 */
+-- INSERT Customers 
+--     (Name, City, state, Sales, Active)
+-- VALUES
+--     ('ACME MFG', 'Mason', 'OH', 999.99, Default);
+
+
+/* INSERT 2 */
+-- INSERT Customers (name, city, state, sales, active)
+-- VALUES ('Tony Rawlins', 'Golden Valley', 'AZ', default, default);
+
+-- INSERT Orders (CustomerId, [Description])
+-- VALUES (40, 'Tony''s first order')
+
+-- insert OrderLines (OrdersId, Product, Description, Quantity, Price)
+-- values (27, 'echo', 'Amazon echo', 1, 100),
+--         (27, 'echodot', 'Amazon echodot', 1, 50),
+--         (27, 'echo', 'Amazon echoshow', 1, 200);
+
+-- select c.name, sum(ol.Quantity * ol.Price) totalOrders
+-- from Customers c
+-- join Orders o
+-- on o.CustomerId = c.Id
+-- join OrderLines ol
+-- on o.id = ol.OrdersId
+-- where c.Id = 40
+-- group by c.Name
+
+/*
+customers
+total orders (price * quatity)
+*/
+
+-- select *
+-- from Customers c
+-- join Orders o
+-- on c.id = o.CustomerId
+-- where c.id = 40
+-- order by c.id desc
+
+/*
+(Customer table) Id = PK
+(Orders table) CustomerId = FK
+*/
+
+
+
+/* UPDATE */
+-- UPDATE Customers
+-- SET  sales = sales + 100,
+--     active = 0
+-- WHERE Name LIKE 'ACME MFG%';
+-- /*WHERE id in (36, 37, 38)*/
+
+/* DELETE */
+-- DELETE Customers
+-- WHERE id in (36, 38, 39);
+
+-- select *
+-- from Customers
+-- order by id desc
+
+/* BEGIN TRANSACTION / ROLLBACK / COMMIT TRANSACTION
+Does not lock in your action. Able to rollback or commit actions */
+-- BEGIN TRANSACTION;
+
+-- DELETE Customers
+-- WHERE id = 35;
+
+-- ROLLBACK;
+
+/* CAST */
+-- select cast(88 as varchar(10)) + 'ABC'
+-- select cast('88' as int) + 12
+
+/* CONVERT */
+-- select CONVERT(varchar(10), 88) IntToString;
+-- select CONVERT(int, '88') SrtingToInt;
+-- select TRY_CONVERT(int, '88A') TrySrtingToInt;
+-- select STR(536) TurnAnythingToString;
+
+/* CREATE DATABASE */
+-- CREATE DATABASE C41BootCamp;
