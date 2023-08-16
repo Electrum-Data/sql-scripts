@@ -60,7 +60,7 @@ create table requests (
 );
 go
 
-create table requestsLine (
+create table RequestLines (
     Id int not null primary key identity(1,1),
     RequestId int not null references Requests(Id) on delete cascade,
     ProductId int not null references Products(Id),
@@ -103,6 +103,24 @@ values ('A110', 'Nighthawk Router', 120.00, '1', '/img/nighthawk.png', 1),
     ('A114', 'Keyboard', 42.00, '1', '/img/keyboard.png', 5),
     ('A115', 'Mouse', 120.00, '1', '/img/mouse.png', 6),
     ('A116', 'Laptop', 850.00, '1', '/img/laptop.png', 7);
+go
+
+insert requests (
+    [Description], Justification, UserId
+)
+values ('Request 1', 'None', 3),
+    ('Request 2', 'None', 3),
+    ('Request 3', 'None', 3),
+    ('Request 4', 'None', 3),
+    ('Request 5', 'None', 3);
+go
+
+insert RequestLines (Quantity, RequestId, ProductId)
+values (1, 1, 1),
+    (1, 2, 2),
+    (2, 3, 3),
+    (5, 1, 4),
+    (3, 4, 5);
 go
 
 select * from products
